@@ -1,0 +1,25 @@
+name: 'Инициализация проекта и тесты' 
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: 'Установка Node.js'
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16.16.0'
+
+      - name: 'Установка зависимостей'
+        run: npm i
+
+      - name: 'Прогон линтера и тестов'
+        run: |
+          npm run lint
+          npm run test
