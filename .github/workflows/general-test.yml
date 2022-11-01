@@ -1,9 +1,6 @@
 name: 'Инициализация проекта и тесты' 
 
-on:
-  push:
-    branches:
-      - master
+on: [push]
 
 jobs:
   tests:
